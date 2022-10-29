@@ -389,7 +389,7 @@ MonoBehaviour:
   m_SaveNewPointKeyCode: 105
   l_PoolObjectsToRestart:
   - {fileID: 1801634840}
-  - {fileID: 1396830033}
+  - {fileID: 1726459936}
 --- !u!4 &364148270
 Transform:
   m_ObjectHideFlags: 0
@@ -1372,6 +1372,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4327144084732578, guid: db58b1eda8133c84983d20108c13888e, type: 3}
   m_PrefabInstance: {fileID: 1700765970}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1726459936 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3768628008869696047, guid: cae156a4a422b904bb3938629b889daf, type: 3}
+  m_PrefabInstance: {fileID: 3768628007164682767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1726459937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3768628008869696046, guid: cae156a4a422b904bb3938629b889daf, type: 3}
@@ -1833,7 +1838,8 @@ PrefabInstance:
       propertyPath: m_OrangePortal
       value: 
       objectReference: {fileID: 2054195849}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1801634851, guid: cae156a4a422b904bb3938629b889daf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cae156a4a422b904bb3938629b889daf, type: 3}
 --- !u!1001 &8296383538688583152
 PrefabInstance:

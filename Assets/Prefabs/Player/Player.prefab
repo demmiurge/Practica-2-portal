@@ -173,16 +173,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3768628008659805718}
-  - component: {fileID: 3768628008659805715}
   - component: {fileID: 3768628008659805716}
   - component: {fileID: 7372570202600051435}
   - component: {fileID: 5244364825780191}
+  - component: {fileID: 1414372744045713770}
+  - component: {fileID: 3768628008659805715}
   - component: {fileID: 3768628008659805713}
   - component: {fileID: 3768628008659805714}
   - component: {fileID: 3768628008659805712}
   - component: {fileID: 4776472379608116873}
+  - component: {fileID: 4102346949235292713}
   - component: {fileID: 1801634842}
-  - component: {fileID: 1801634851}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -206,38 +207,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &3768628008659805715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3768628008659805719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f3f8fc220ccafb49b878efe5c9cbe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_YawRotationalSpeed: 720
-  m_PitchRotationalSpeed: 720
-  m_MinPitch: -75
-  m_MaxPitch: 45
-  m_PitchController: {fileID: 0}
-  m_UseYawInverted: 0
-  m_UsePitchInverted: 1
-  m_CharacterController: {fileID: 3768628008659805716}
-  m_Speed: 5
-  m_FastSpeedMultiplier: 1.5
-  m_LeftKeyCode: 97
-  m_RightKeyCode: 100
-  m_UpKeyCode: 119
-  m_DownKeyCode: 115
-  m_JumpKeyCode: 32
-  m_RunKeyCode: 304
-  m_PlayerCamera: {fileID: 3768628008293408671}
-  m_NormalMovementFOV: 60
-  m_RunMovementFOV: 80
-  m_JumpSpeed: 10
 --- !u!143 &3768628008659805716
 CharacterController:
   m_ObjectHideFlags: 0
@@ -286,6 +255,50 @@ CapsuleCollider:
   m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1414372744045713770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768628008659805719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c7252322839b549b7373b70b20b39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_YawRotationalSpeed: 720
+  m_PitchRotationalSpeed: 720
+  m_MinPitch: -75
+  m_MaxPitch: 45
+  m_PitchController: {fileID: 3768628008869696046}
+  m_UseYawInverted: 0
+  m_UsePitchInverted: 1
+--- !u!114 &3768628008659805715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768628008659805719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3f8fc220ccafb49b878efe5c9cbe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CharacterController: {fileID: 3768628008659805716}
+  m_Speed: 5
+  m_FastSpeedMultiplier: 1.5
+  m_LeftKeyCode: 97
+  m_RightKeyCode: 100
+  m_UpKeyCode: 119
+  m_DownKeyCode: 115
+  m_JumpKeyCode: 32
+  m_RunKeyCode: 304
+  m_PlayerCamera: {fileID: 3768628008293408671}
+  m_NormalMovementFOV: 60
+  m_RunMovementFOV: 80
+  m_JumpSpeed: 10
 --- !u!114 &3768628008659805713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +361,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_PlayerCamera: {fileID: 3768628008293408671}
+--- !u!114 &4102346949235292713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3768628008659805719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8207f2b0da4dff4496cd587591c38cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AvailableToSetAttributes: 1
 --- !u!114 &1801634842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,19 +384,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2de238985e8cb2c4194ffebc614820c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AvailableToSetAttributes: 1
---- !u!114 &1801634851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3768628008659805719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c47073a92a735140b17d34938c8d0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AvailableToSetAttributes: 1
