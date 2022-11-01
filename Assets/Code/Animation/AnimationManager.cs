@@ -13,10 +13,7 @@ public class AnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (AnimationState state in m_ElementAnimation)
-        {
-            state.speed = 0.5F;
-        }
+
     }
 
     // Update is called once per frame
@@ -32,16 +29,11 @@ public class AnimationManager : MonoBehaviour
 
     public void PlayOnAnimation()
     {
-        float l_PointToStart = m_OnElementAnimation.averageDuration - m_Time;
         m_ElementAnimation.CrossFade(m_OnElementAnimation.name);
-        m_Time = 0.0f;
     }
 
     public void PlayOffAnimation()
     {
-        float l_PointToStart = m_OnElementAnimation.averageDuration;
-        m_ElementAnimation.Blend(m_OffElementAnimation.name, l_PointToStart);
-
-        m_Time = 0.0f;
+        m_ElementAnimation.CrossFade(m_OffElementAnimation.name);
     }
 }
