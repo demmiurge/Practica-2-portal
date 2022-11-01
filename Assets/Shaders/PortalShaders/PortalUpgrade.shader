@@ -1,4 +1,4 @@
-Shader "Tecnocampus/PortalShader"
+Shader "Tecnocampus/PortalShaderUpgrade"
 {
 	Properties
 	{
