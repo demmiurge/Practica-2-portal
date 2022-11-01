@@ -31,14 +31,12 @@ public class PressureDetection : MonoBehaviour
             m_NumberOfElementsAbove++;
 
         if (m_NumberOfElementsAbove == 1)
-        {
-            StartCoroutine(SetActive());
-        }
+            StartCoroutine(SetActive(l_Rigidbody.mass));
     }
 
-    IEnumerator SetActive()
+    IEnumerator SetActive(float l_Mass)
     {
-        m_ButtonAnimation.Play(m_PressButtonAnimation.name);
+        m_ButtonAnimation.CrossFade(m_PressButtonAnimation.name, 0.01f);
         yield return new WaitForSeconds(m_PressButtonAnimation.length);
         m_Activation.Invoke();
     }
@@ -57,7 +55,8 @@ public class PressureDetection : MonoBehaviour
 
     void SetDisabled()
     {
+        m_ButtonAnimation.CrossFade(m_ReleaseButtonAnimation.name, 0.01f);
+        float l_FadeLenght = 0.3f;
         m_Deactivation.Invoke();
-        m_ButtonAnimation.Play(m_ReleaseButtonAnimation.name);
     }
 }
