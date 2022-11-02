@@ -29,8 +29,7 @@ public class PlayerMovementWithRigidbody : MonoBehaviour
     }
 
     // Update is called once per frame
-    //void Update()
-    void FixedUpdate()
+    void Update()
     {
         m_PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         m_PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
