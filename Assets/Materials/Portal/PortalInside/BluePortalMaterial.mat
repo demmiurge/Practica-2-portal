@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BluePortalMaterial
-  m_Shader: {fileID: 4800000, guid: 9e95857b67bc1cb4caeb8d7649382391, type: 3}
+  m_Shader: {fileID: 4800000, guid: 597888cdd6cac364e84af2cf7232ccba, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
