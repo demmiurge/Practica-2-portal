@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 
@@ -23,12 +24,19 @@ public class PlayerMovementWithRigidbody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
+    }
+
+    // Update is called once per frame
+    //void Update()
+    void FixedUpdate()
+    {
         m_PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         m_PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         MovePlayer();
         MovePlayerCamera();
-
     }
 
     private void MovePlayer()
@@ -37,22 +45,15 @@ public class PlayerMovementWithRigidbody : MonoBehaviour
         m_PlayerRigidbody.velocity = new Vector3(l_MoveVector.x, m_PlayerRigidbody.velocity.y, l_MoveVector.z);
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-        }
-            //if (Physics.CheckSphere(m_FeetTransform.position, 0.1f))
-                
+            if (Physics.CheckSphere(m_FeetTransform.position, 0.1f, m_FloorMask))
+                m_PlayerRigidbody.AddForce(Vector3.up * m_JumpForce, ForceMode.Impulse);
     }
 
     private void MovePlayerCamera()
     {
-        throw new System.NotImplementedException();
-    }
+        m_Rot -= m_PlayerMouseInput.y * m_Sensitivity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.Rotate(0.0f, m_PlayerMouseInput.x * m_Sensitivity, 0.0f);
+        m_PlayerCamera.transform.localRotation = Quaternion.Euler(m_Rot, 0f, 0f);
     }
-
 }

@@ -20,11 +20,7 @@ public class AnimationManager : MonoBehaviour
     void Update()
     {
         if (m_ElementAnimation.isPlaying)
-        {
-            Debug.Log("MORE TIME");
             m_Time += Time.deltaTime;
-        }
-            
     }
 
     public void PlayOnAnimation()
