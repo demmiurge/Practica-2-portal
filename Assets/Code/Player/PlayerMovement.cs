@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public float m_RunMovementFOV;
 
     public float m_JumpSpeed = 10.0f;
+    Vector3 m_Direction;
+    [Range(30.0f, 90.0f)] public float m_AngleDegrees;
 
     // Start is called before the first frame update
     void Start()
@@ -36,23 +38,23 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 l_RightDirection = transform.right;
         Vector3 l_ForwardDirection = transform.forward;
-        Vector3 l_Direction = Vector3.zero;
+        m_Direction = Vector3.zero;
         float l_Speed = m_Speed;
 
         float l_MouseX = Input.GetAxis("Mouse X");
         float l_MouseY = Input.GetAxis("Mouse Y");
 
         if (Input.GetKey(m_UpKeyCode))
-            l_Direction = l_ForwardDirection;
+            m_Direction = l_ForwardDirection;
 
         if (Input.GetKey(m_DownKeyCode))
-            l_Direction = -l_ForwardDirection;
+            m_Direction = -l_ForwardDirection;
 
         if (Input.GetKey(m_RightKeyCode))
-            l_Direction += l_RightDirection;
+            m_Direction += l_RightDirection;
 
         if (Input.GetKey(m_LeftKeyCode))
-            l_Direction -= l_RightDirection;
+            m_Direction -= l_RightDirection;
 
         if (Input.GetKeyDown(m_JumpKeyCode) && m_OnGround)
             m_VerticalSpeed = m_JumpSpeed;
@@ -68,9 +70,9 @@ public class PlayerMovement : MonoBehaviour
         // m_Camera.fieldOfView = l_FOV;
         m_PlayerCamera.fieldOfView = Mathf.Lerp(m_PlayerCamera.fieldOfView, l_FOV, 0.1f);
 
-        l_Direction.Normalize();
+        m_Direction.Normalize();
 
-        Vector3 l_Movement = l_Direction * l_Speed * Time.deltaTime;
+        Vector3 l_Movement = m_Direction * l_Speed * Time.deltaTime;
 
         m_VerticalSpeed = m_VerticalSpeed + Physics.gravity.y * Time.deltaTime;
         l_Movement.y = m_VerticalSpeed * Time.deltaTime;
@@ -86,5 +88,36 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             m_OnGround = false;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Portal")
+        {
+            Portal l_Portal = other.GetComponent<Portal>();
+            if (Vector3.Dot(l_Portal.transform.forward, -m_Direction) > Mathf.Cos(m_AngleDegrees * Mathf.Deg2Rad))
+            {
+                Teleport(other.GetComponent<Portal>());
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+
+    }
+
+    private void Teleport(Portal _Portal)
+    {
+        Vector3 l_LocalPosition = _Portal.m_OtherPortalTransform.InverseTransformPoint(transform.position);
+        Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(transform.forward);
+        Vector3 l_LocalDirectionMovement = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(m_Direction);
+        Vector3 l_WorldDirectionMovement = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionMovement);
+
+        m_CharacterController.enabled = false;
+        transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
+        //m_Yaw = transform.rotation.eulerAngles.y;
+        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + l_WorldDirectionMovement * 8f;
+        m_CharacterController.enabled = true;
     }
 }
