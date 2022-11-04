@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Direction;
     [Range(30.0f, 90.0f)] public float m_AngleDegrees;
 
+    public Vector3 _Direction => m_Direction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,15 +111,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void Teleport(Portal _Portal)
     {
+        Rigidbody l_Rigidbody = GetComponent<Rigidbody>();
+
         Vector3 l_LocalPosition = _Portal.m_OtherPortalTransform.InverseTransformPoint(transform.position);
         Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(transform.forward);
         Vector3 l_LocalDirectionMovement = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(m_Direction);
         Vector3 l_WorldDirectionMovement = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionMovement);
 
+        Vector3 l_LocalVelocity = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(l_Rigidbody.velocity);
+        Vector3 l_WorldVelocity = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalVelocity);
+
+        l_Rigidbody.isKinematic = true;
+
+        Vector3 l_WorldVeloctyNormalized = l_WorldVelocity.normalized;
+
         m_CharacterController.enabled = false;
         transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
         //m_Yaw = transform.rotation.eulerAngles.y;
-        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + l_WorldDirectionMovement * 1f;
+        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + (l_WorldDirectionMovement + l_WorldVeloctyNormalized) * 2f;
+        l_Rigidbody.isKinematic = false;
         m_CharacterController.enabled = true;
 
         Debug.Break();

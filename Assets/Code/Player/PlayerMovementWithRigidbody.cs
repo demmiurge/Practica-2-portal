@@ -21,6 +21,9 @@ public class PlayerMovementWithRigidbody : MonoBehaviour
     [SerializeField] private float m_Sensitivity;
     [SerializeField] private float m_JumpForce;
 
+    Vector3 l_MoveVector;
+    public Vector3 g_Movement => l_MoveVector;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,7 @@ public class PlayerMovementWithRigidbody : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 l_MoveVector = transform.TransformDirection(m_PlayerMovementInput) * m_Speed;
+        l_MoveVector = transform.TransformDirection(m_PlayerMovementInput) * m_Speed;
         m_PlayerRigidbody.velocity = new Vector3(l_MoveVector.x, m_PlayerRigidbody.velocity.y, l_MoveVector.z);
 
         if (Input.GetKeyDown(KeyCode.Space))
