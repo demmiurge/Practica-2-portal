@@ -15718,6 +15718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8296383537964835739}
   - component: {fileID: 8296383537964835740}
+  - component: {fileID: 8343033653804167360}
   m_Layer: 0
   m_Name: BluePortal
   m_TagString: Untagged
@@ -15775,6 +15776,19 @@ MonoBehaviour:
   m_MinValidDistance: 0.4
   m_MaxValidDistance: 1.5
   m_MinDotValidAngle: 0.995
+--- !u!65 &8343033653804167360
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296383537964835738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.475712, z: 0.5925993}
+  m_Center: {x: 1.1306844e-17, y: 0.024817288, z: 0.0047018975}
 --- !u!1 &8296383538136095202
 GameObject:
   m_ObjectHideFlags: 0

@@ -899,7 +899,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
   m_PrefabInstance: {fileID: 1172984481}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140563255}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a3b1e3ebeb0124449e9574ea3770968, type: 3}
@@ -1131,24 +1131,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &719091056 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8296383537964835738, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
-  m_PrefabInstance: {fileID: 1529779158}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &719091058
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719091056}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.5572419, z: 0.1817023}
-  m_Center: {x: -3.532858e-16, y: 0.021906376, z: 0.10013969}
 --- !u!4 &886103322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4030265401529158, guid: a1cac729332a2ab4da9eddbafe267558, type: 3}
@@ -19470,7 +19452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296383537964835739, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 6.12
       objectReference: {fileID: 0}
     - target: {fileID: 8296383537964835739, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38975,7 +38957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296383537964835739, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 6.08
       objectReference: {fileID: 0}
     - target: {fileID: 8296383537964835739, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_LocalPosition.y
@@ -39033,6 +39015,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 177a4dcb5b5d6af45a39af6ff9784cf5, type: 2}
+    - target: {fileID: 8343033653804167360, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8521006635271691656, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -39045,7 +39031,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
   m_PrefabInstance: {fileID: 1529779158}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719091056}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a3b1e3ebeb0124449e9574ea3770968, type: 3}
@@ -39673,21 +39659,3 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &2140563255 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8296383537964835738, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
-  m_PrefabInstance: {fileID: 1172984481}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2140563256
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140563255}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.6821351, z: 0.26244375}
-  m_Center: {x: -4.4205993e-16, y: 0.07119894, z: 0.09389277}

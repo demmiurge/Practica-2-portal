@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             Portal l_Portal = other.GetComponent<Portal>();
             if (Vector3.Dot(l_Portal.transform.forward, -m_Direction) > Mathf.Cos(m_AngleDegrees * Mathf.Deg2Rad))
             {
-                Teleport(other.GetComponent<Portal>());
+                Teleport(l_Portal);
             }
         }
     }
@@ -117,7 +117,9 @@ public class PlayerMovement : MonoBehaviour
         m_CharacterController.enabled = false;
         transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
         //m_Yaw = transform.rotation.eulerAngles.y;
-        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + l_WorldDirectionMovement * 8f;
+        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + l_WorldDirectionMovement * 1f;
         m_CharacterController.enabled = true;
+
+        Debug.Break();
     }
 }
