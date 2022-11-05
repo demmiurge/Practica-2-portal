@@ -21,7 +21,7 @@ public class Companion : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Portal")
+        if (other.tag == "Portal" && isAttached == false)
         {
             Portal l_Portal = other.GetComponent<Portal>();
 

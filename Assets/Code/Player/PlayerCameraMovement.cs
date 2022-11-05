@@ -19,7 +19,6 @@ public class PlayerCameraMovement : MonoBehaviour
     public bool m_UseYawInverted;
     public bool m_UsePitchInverted = true;
 
-    public float g_Yaw;
 
     // Start is called before the first frame update
     void Start()
