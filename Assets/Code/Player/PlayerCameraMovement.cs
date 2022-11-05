@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCameraMovement : MonoBehaviour
 {
-    float m_Yaw;
+    public float m_Yaw;
     float m_Pitch;
 
     public float m_YawRotationalSpeed = 720;
@@ -18,7 +18,7 @@ public class PlayerCameraMovement : MonoBehaviour
     public bool m_UseYawInverted;
     public bool m_UsePitchInverted = true;
 
-    public float g_Yaw => m_Yaw;
+    public float g_Yaw;
 
     // Start is called before the first frame update
     void Start()

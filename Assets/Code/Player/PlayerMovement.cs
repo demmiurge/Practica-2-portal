@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float m_JumpSpeed = 10.0f;
     Vector3 m_Direction;
-    [Range(30.0f, 90.0f)] public float m_AngleDegrees;
+    //[Range(30.0f, 90.0f)] public float m_AngleDegrees;
 
     public Vector3 _Direction => m_Direction;
 
@@ -94,14 +94,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Portal")
+        /*if (other.tag == "Portal")
         {
             Portal l_Portal = other.GetComponent<Portal>();
             if (Vector3.Dot(l_Portal.transform.forward, -m_Direction) > Mathf.Cos(m_AngleDegrees * Mathf.Deg2Rad))
             {
                 Teleport(l_Portal);
             }
-        }
+        }*/
     }
 
     public void OnTriggerExit(Collider other)
@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void Teleport(Portal _Portal)
+    /*private void Teleport(Portal _Portal)
     {
         Rigidbody l_Rigidbody = GetComponent<Rigidbody>();
 
@@ -133,5 +133,5 @@ public class PlayerMovement : MonoBehaviour
         m_CharacterController.enabled = true;
 
         Debug.Break();
-    }
+    }*/
 }

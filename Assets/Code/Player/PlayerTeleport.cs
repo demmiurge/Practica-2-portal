@@ -49,24 +49,22 @@ public class PlayerTeleport : MonoBehaviour
         Vector3 l_LocalPosition = _Portal.m_OtherPortalTransform.InverseTransformPoint(transform.position);
         Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(transform.forward);
 
-        Vector3 l_LocalVelocity = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(m_Rigidbody.velocity);
+        //Vector3 l_LocalVelocity = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(m_Rigidbody.velocity);
+        //Vector3 l_WorldVelocity = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalVelocity);
 
-        Vector3 l_WorldVelocity = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalVelocity);
-
-        Vector3 l_LocalDirectionMovement = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(GetComponent<PlayerMovementWithRigidbody>().g_Movement);
+        Vector3 l_LocalDirectionMovement = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(m_Rigidbody.velocity);
         Vector3 l_WorldDirectionMovement = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionMovement);
 
         m_Rigidbody.isKinematic = true;
-
         transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
+        GetComponent<PlayerCameraMovement>().m_Yaw = transform.rotation.eulerAngles.y;
+        Vector3 l_WorldDirectionNormalized = l_WorldDirectionMovement.normalized;
+        //Vector3 l_WorldVelocityNormalized = l_WorldVelocity.normalized;
 
-        //Vector3 l_WorldDirectionNormalized = l_WorldDirectionMovement.normalized;
-        Vector3 l_WorldVelocityNormalized = l_WorldVelocity.normalized;
-
-        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + l_WorldDirectionMovement * 1.5f;
+        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition) + l_WorldDirectionNormalized * 1.5f;
         transform.localScale *= (_Portal.m_MirrorPortal.transform.localScale.x / _Portal.transform.localScale.x);
         m_Rigidbody.isKinematic = false;
-        m_Rigidbody.velocity = l_WorldVelocity;
+        //m_Rigidbody.velocity = l_WorldVelocity;
         m_ExitPortal = _Portal.m_MirrorPortal;
 
         Debug.Break();
