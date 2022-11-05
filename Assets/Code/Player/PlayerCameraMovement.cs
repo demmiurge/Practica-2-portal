@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCameraMovement : MonoBehaviour
 {
+    [HideInInspector]
     public float m_Yaw;
     float m_Pitch;
 
