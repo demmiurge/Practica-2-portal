@@ -22,9 +22,7 @@ public class PlayerTeleport : MonoBehaviour
             Portal l_Portal = other.GetComponent<Portal>();
 
             if (Vector3.Dot(l_Portal.transform.forward, -GetComponent<PlayerMovementWithRigidbody>().g_Movement) > Mathf.Cos(m_AngleDegrees * Mathf.Deg2Rad))
-            {
                 Teleport(other.GetComponent<Portal>());
-            }
         }
     }
 
