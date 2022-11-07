@@ -122,8 +122,6 @@ public class ShootPortals : MonoBehaviour
             m_ObjectAttached.transform.SetParent(m_AttachingPosition);
             m_ObjectAttached.transform.localPosition = Vector3.zero;
             m_ObjectAttached.transform.localRotation = Quaternion.identity;
-            //m_ObjectAttached.MovePosition(m_AttachingPosition.position);
-            //m_ObjectAttached.MoveRotation(Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z));
         }
         else
         {
@@ -131,12 +129,6 @@ public class ShootPortals : MonoBehaviour
             m_ObjectAttached.MovePosition(m_ObjectAttached.transform.position + l_Direction * l_Movement);
             m_ObjectAttached.MoveRotation(Quaternion.Lerp(m_AttachingObjectStartRotation, Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z), 1.0f - Mathf.Min(l_Distance / 1.5f, 1.0f)));
         }
-
-        /*else
-        {
-            m_ObjectAttached.MoveRotation(Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z));
-            m_ObjectAttached.MovePosition(m_AttachingPosition.position);
-        }*/
     }
 
     void Shoot(Portal l_Portal)

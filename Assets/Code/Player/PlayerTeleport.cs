@@ -21,27 +21,11 @@ public class PlayerTeleport : MonoBehaviour
         {
             Portal l_Portal = other.GetComponent<Portal>();
 
-            /*if (l_Portal != m_ExitPortal)
-            {
-                Teleport(l_Portal);
-            }*/
-
             if (Vector3.Dot(l_Portal.transform.forward, -GetComponent<PlayerMovementWithRigidbody>().g_Movement) > Mathf.Cos(m_AngleDegrees * Mathf.Deg2Rad))
             {
                 Teleport(other.GetComponent<Portal>());
             }
         }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-       /* if (other.tag == "Portal")
-        {
-            if (other.GetComponent<Portal>() == m_ExitPortal)
-            {
-                m_ExitPortal = null;
-            }
-        }*/
     }
 
     private void Teleport(Portal _Portal)
@@ -66,7 +50,5 @@ public class PlayerTeleport : MonoBehaviour
         m_Rigidbody.isKinematic = false;
         //m_Rigidbody.velocity = l_WorldVelocity;
         m_ExitPortal = _Portal.m_MirrorPortal;
-
-        Debug.Break();
     }
 }
