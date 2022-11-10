@@ -19,6 +19,35 @@ public class Portal : MonoBehaviour
     public float m_MaxValidDistance = 1.5f;
     public float m_MinDotValidAngle = 0.995f;
 
+    public LineRenderer m_LineRenderer;
+    public float m_MaxDistance = 250.0f;
+    public LayerMask m_CollisionLayerMask;
+    bool m_CreateRefraction;
+
+    void Update()
+    {
+        m_LineRenderer.gameObject.SetActive(m_CreateRefraction);
+        m_CreateRefraction = false;
+    }
+
+    public void CreateRefraction()
+    {
+        m_CreateRefraction = true;
+        Vector3 l_EndRaycastPosition = Vector3.forward * m_MaxDistance;
+        RaycastHit l_RaycastHit;
+        if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHit, m_MaxDistance, m_CollisionLayerMask.value))
+        {
+            l_EndRaycastPosition = Vector3.forward * l_RaycastHit.distance;
+            if (l_RaycastHit.collider.tag == "Portal")
+            {
+                //Reflect ray
+                l_RaycastHit.collider.GetComponent<Portal>().CreateRefraction();
+            }
+            //Other collisions
+        }
+        m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
+    }
+
     private void LateUpdate()
     {
         Vector3 l_WorldPosition = m_PlayerCamera.transform.position;
@@ -85,9 +114,4 @@ public class Portal : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
