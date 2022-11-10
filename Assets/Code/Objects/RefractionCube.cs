@@ -39,6 +39,6 @@ public class RefractionCube : MonoBehaviour
                 l_RaycastHit.collider.GetComponent<RefractionCube>().CreateRefraction();
             }
         }
-        m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
+        m_Laser.SetPosition(1, new Vector3(l_RaycastHit.transform.position.x, l_RaycastHit.transform.position.y, l_LaserDistance));
     }
 }

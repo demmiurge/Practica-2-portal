@@ -24,6 +24,8 @@ public class Portal : MonoBehaviour
     public LayerMask m_CollisionLayerMask;
     bool m_CreateRefraction;
 
+    float m_MaxLaserDistance = 250.0f;
+
     void Update()
     {
         m_LineRenderer.gameObject.SetActive(m_CreateRefraction);
@@ -34,10 +36,12 @@ public class Portal : MonoBehaviour
     {
         m_CreateRefraction = true;
         Vector3 l_EndRaycastPosition = Vector3.forward * m_MaxDistance;
+        float l_LaserDistance = m_MaxLaserDistance;
         RaycastHit l_RaycastHit;
         if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHit, m_MaxDistance, m_CollisionLayerMask.value))
         {
             l_EndRaycastPosition = Vector3.forward * l_RaycastHit.distance;
+            l_LaserDistance = Vector3.Distance(m_LineRenderer.transform.position, l_RaycastHit.point);
             if (l_RaycastHit.collider.tag == "Portal")
             {
                 //Reflect ray
@@ -45,7 +49,8 @@ public class Portal : MonoBehaviour
             }
             //Other collisions
         }
-        m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
+        m_LineRenderer.SetPosition(1, new Vector3(l_RaycastHit.transform.forward.x, l_RaycastHit.transform.forward.y, l_LaserDistance));
+        //m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
     }
 
     private void LateUpdate()
