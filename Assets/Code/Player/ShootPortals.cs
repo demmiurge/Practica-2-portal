@@ -90,6 +90,11 @@ public class ShootPortals : MonoBehaviour
             {
                 m_AttachedObject = true;
                 m_ObjectAttached = l_RaycastHit.collider.GetComponent<Rigidbody>();
+                m_ObjectAttached.gameObject.layer = LayerMask.NameToLayer("Weapon");
+                for (int i = 0; i < m_ObjectAttached.transform.childCount; i++)
+                {
+
+                }
                 m_ObjectAttached.GetComponent<Companion>().SetAttached(true);
                 m_ObjectAttached.isKinematic = true;
                 m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
@@ -103,6 +108,7 @@ public class ShootPortals : MonoBehaviour
         {
             m_AttachedObject = false;
             m_ObjectAttached.transform.SetParent(null);
+            m_ObjectAttached.gameObject.layer = LayerMask.NameToLayer("Objects");
             m_ObjectAttached.GetComponent<Companion>().SetAttached(false);
             m_ObjectAttached.isKinematic = false;
             m_ObjectAttached.AddForce(m_PitchController.forward * force);
