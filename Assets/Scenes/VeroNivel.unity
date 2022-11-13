@@ -20889,7 +20889,7 @@ LineRenderer:
   m_GameObject: {fileID: 1283149265}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
@@ -20943,17 +20943,17 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 0.99173516, g: 1, b: 0.033018887, a: 1}
+      key2: {r: 0, g: 1, b: 0.083981514, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
+      ctime1: 33153
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -20968,7 +20968,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -21009,7 +21009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1305228527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40792,7 +40792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1569930069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40867,7 +40867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1690543848
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41041,6 +41041,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27833b844d461f4b86eb78316440a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Empty: {fileID: 1855360887}
+  m_Blue: {fileID: 1569930070}
+  m_Orange: {fileID: 1690543849}
+  m_Full: {fileID: 1305228528}
+  m_BluePortal: {fileID: 1552959685}
+  m_OrangePortal: {fileID: 467314221}
 --- !u!1 &1788410476
 GameObject:
   m_ObjectHideFlags: 0
