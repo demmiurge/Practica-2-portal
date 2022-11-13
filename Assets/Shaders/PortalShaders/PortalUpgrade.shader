@@ -8,7 +8,7 @@ Shader "Tecnocampus/PortalShaderUpgrade"
 	}
 		SubShader
 		{
-			Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Opaque" }
+			Tags{ "Queue" = "Geometry" "IgnoreProjector" = "True" "RenderType" = "Opaque" }
 			Lighting Off
 			Cull Back
 			ZWrite On

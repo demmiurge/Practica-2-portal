@@ -9,6 +9,7 @@ TagManager:
   - Portal
   - Floor
   - RefractionCube
+  - Turret
   layers:
   - Default
   - TransparentFX
