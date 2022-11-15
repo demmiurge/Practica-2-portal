@@ -7,7 +7,7 @@ public class ShootPortals : MonoBehaviour
     [Header("Portals")]
     public Portal m_BluePortal;
     public Portal m_OrangePortal;
-    public Portal m_Dummie;
+    public Portal m_Dummy;
 
     public float m_MaxShootDistance = 50.0f;
     public LayerMask m_ShootingLayerMask;
@@ -27,11 +27,14 @@ public class ShootPortals : MonoBehaviour
 
     public Camera m_PlayerCamera;
 
+    float m_Scale;
+
     // Start is called before the first frame update
     void Start()
     {
         m_BluePortal.gameObject.SetActive(false);
         m_OrangePortal.gameObject.SetActive(false);
+        m_Scale = 1;
     }
 
     // Update is called once per frame
@@ -66,7 +69,29 @@ public class ShootPortals : MonoBehaviour
                 Shoot(m_BluePortal);
             if (Input.GetMouseButtonDown(1))
                 Shoot(m_OrangePortal);
-
+            if(Input.mouseScrollDelta.y > 0)
+            {
+                if (m_Scale == 1)
+                {
+                    m_Scale = 2;
+                }
+                else
+                {
+                    m_Scale = 1;
+                }
+            }
+            if(Input.mouseScrollDelta.y < 0)
+            {
+                if(m_Scale > 1 && m_Scale <=2)
+                {
+                    m_Scale = 1f;
+                }
+                else if(m_Scale > 0.5 && m_Scale <= 1)
+                {
+                    m_Scale = 0.5f;
+                }
+                
+            }
         }
 
         if (m_AttachedObject)
@@ -91,8 +116,8 @@ public class ShootPortals : MonoBehaviour
                 m_AttachedObject = true;
                 m_ObjectAttached = l_RaycastHit.collider.GetComponent<Rigidbody>();
                 m_ObjectAttached.gameObject.layer = LayerMask.NameToLayer("Weapon");
-                foreach(Transform child in m_ObjectAttached.transform)
-                    child.gameObject.layer = LayerMask.NameToLayer("Weapon");
+                /*foreach(Transform child in m_ObjectAttached.transform)
+                    child.gameObject.layer = LayerMask.NameToLayer("Weapon");*/
                 m_ObjectAttached.GetComponent<Companion>().SetAttached(true);
                 m_ObjectAttached.isKinematic = true;
                 m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
@@ -143,8 +168,13 @@ public class ShootPortals : MonoBehaviour
         Vector3 l_Normal;
 
         if (l_Portal.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
+        {
+            l_Portal.transform.localScale *= m_Scale;
             l_Portal.gameObject.SetActive(true);
+            //m_Scale = 1;
+        }
         else
             l_Portal.gameObject.SetActive(false);
+
     }
 }

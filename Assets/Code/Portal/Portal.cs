@@ -47,7 +47,11 @@ public class Portal : MonoBehaviour
                 //Reflect ray
                 l_RaycastHit.collider.GetComponent<Portal>().CreateRefraction();
             }
-            //Other collisions
+
+            if (l_RaycastHit.collider.tag == "Player")
+            {
+                Debug.Log("You died");
+            }
         }
         m_LineRenderer.SetPosition(1, new Vector3(l_RaycastHit.transform.forward.x, l_RaycastHit.transform.forward.y, l_LaserDistance));
         //m_LineRenderer.SetPosition(1, l_EndRaycastPosition);

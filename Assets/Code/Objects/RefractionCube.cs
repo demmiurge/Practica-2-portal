@@ -38,6 +38,11 @@ public class RefractionCube : MonoBehaviour
             {
                 l_RaycastHit.collider.GetComponent<RefractionCube>().CreateRefraction();
             }
+
+            if (l_RaycastHit.collider.tag == "Player")
+            {
+                Debug.Log("You died");
+            }
         }
         m_Laser.SetPosition(1, new Vector3(l_RaycastHit.transform.position.x, l_RaycastHit.transform.position.y, l_LaserDistance));
     }

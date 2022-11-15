@@ -48,12 +48,17 @@ public class PlayerMovementWithRigidbody : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
             if (Physics.CheckSphere(m_FeetTransform.position, 0.1f, m_FloorMask))
+            {
                 m_PlayerRigidbody.AddForce(Vector3.up * m_JumpForce, ForceMode.Impulse);
+                Debug.Log("jump");
+            }
+
     }
 
     private void MovePlayerCamera()
     {
         m_Rot -= m_PlayerMouseInput.y * m_Sensitivity;
+        m_Rot = Mathf.Clamp(m_Rot, -75, 45);
 
         transform.Rotate(0.0f, m_PlayerMouseInput.x * m_Sensitivity, 0.0f);
         m_PlayerCamera.transform.localRotation = Quaternion.Euler(m_Rot, 0f, 0f);

@@ -39,7 +39,7 @@ public class PlayerTeleport : MonoBehaviour
 
         m_Rigidbody.isKinematic = true;
         transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
-        GetComponent<PlayerCameraMovement>().m_Yaw = transform.rotation.eulerAngles.y;
+        //GetComponent<PlayerCameraMovement>().m_Yaw = transform.rotation.eulerAngles.y;
         Vector3 l_WorldDirectionNormalized = l_WorldDirectionMovement.normalized;
         //Vector3 l_WorldVelocityNormalized = l_WorldVelocity.normalized;
 
