@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class SceneController : MonoBehaviour
 {
@@ -13,5 +14,11 @@ public class SceneController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
     }
+
+
 }
