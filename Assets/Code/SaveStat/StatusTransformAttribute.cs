@@ -15,8 +15,6 @@ public class StatusTransformAttribute : GameObjectStateLoadReload
 
     public override void SetCurrentAttributesAsDefault()
     {
-        Debug.Log("Save");
-
         m_Position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         m_Rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
 
@@ -29,8 +27,6 @@ public class StatusTransformAttribute : GameObjectStateLoadReload
 
     public override void LoadDefaultAttributes()
     {
-        Debug.Log("Reload");
-
         transform.position = m_Position;
         transform.rotation = m_Rotation;
 
