@@ -20,13 +20,13 @@ public class ManagerStatusSaveLoad : MonoBehaviour
     {
         if (Input.GetKey(m_RespawnKeyCode))
             foreach (GameObject l_GameObject in l_PoolObjectsToRestart)
-            foreach (ISaveLoad l_ComponentToRestart in l_GameObject.GetComponents<ISaveLoad>())
-                l_ComponentToRestart.LoadDefaultAttributes();
+                foreach (ISaveLoad l_ComponentToRestart in l_GameObject.GetComponents<ISaveLoad>())
+                    l_ComponentToRestart.LoadDefaultAttributes();
 
         if (Input.GetKey(m_SaveNewPointKeyCode))
             foreach (GameObject l_GameObject in l_PoolObjectsToRestart)
-            foreach (ISaveLoad l_ComponentToRestart in l_GameObject.GetComponents<ISaveLoad>())
-                if (l_ComponentToRestart.CanAttributesBeSet())
-                    l_ComponentToRestart.SetCurrentAttributesAsDefault();
+                foreach (ISaveLoad l_ComponentToRestart in l_GameObject.GetComponents<ISaveLoad>())
+                    if (l_ComponentToRestart.CanAttributesBeSet())
+                        l_ComponentToRestart.SetCurrentAttributesAsDefault();
     }
 }
