@@ -34,16 +34,13 @@ public class ShootPortals : MonoBehaviour
     {
         m_BluePortal.gameObject.SetActive(false);
         m_OrangePortal.gameObject.SetActive(false);
+        //m_Dummy.gameObject.SetActive(false);
         m_Scale = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* if (Input.GetMouseButtonDown(0))
-             Shoot(m_BluePortal);
-         if (Input.GetMouseButtonDown(1))
-             Shoot(m_OrangePortal);*/
 
         if (Input.GetKeyDown(m_AttachObjectKeyCode) && CanAttach())
         {
@@ -52,12 +49,12 @@ public class ShootPortals : MonoBehaviour
 
         if (m_ObjectAttached && !m_AttachedObject)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 ThrowAttachedObject(m_AttachedObjectThrowForce);
                 m_ObjectAttached = null;
             }
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonUp(1))
             {
                 ThrowAttachedObject(m_AttachedObjectReleaseForce);
                 m_ObjectAttached = null;
@@ -66,8 +63,16 @@ public class ShootPortals : MonoBehaviour
         else if (!m_AttachedObject)
         {
             if (Input.GetMouseButtonDown(0))
-                Shoot(m_BluePortal);
+            {
+                ShowPreview(m_Dummy);
+            }
             if (Input.GetMouseButtonDown(1))
+            {
+                ShowPreview(m_Dummy);
+            }
+            if (Input.GetMouseButtonUp(0))
+                Shoot(m_BluePortal);
+            if (Input.GetMouseButtonUp(1))
                 Shoot(m_OrangePortal);
             if(Input.mouseScrollDelta.y > 0)
             {
@@ -169,13 +174,25 @@ public class ShootPortals : MonoBehaviour
         l_Portal.transform.localScale = new Vector3(m_Scale, m_Scale, 1.0f);
 
         if (l_Portal.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
-        {
-            
+        {   
             l_Portal.gameObject.SetActive(true);
-            //m_Scale = 1;
         }
         else
             l_Portal.gameObject.SetActive(false);
 
+    }
+
+    void ShowPreview(Portal l_Dummy)
+    {
+        Vector3 l_Position;
+        Vector3 l_Normal;
+        l_Dummy.transform.localScale = new Vector3(m_Scale, m_Scale, 1.0f);
+
+        if (l_Dummy.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
+        {
+            l_Dummy.gameObject.SetActive(true);
+        }
+        else
+            l_Dummy.gameObject.SetActive(false);
     }
 }
