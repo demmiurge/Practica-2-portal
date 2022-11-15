@@ -32,16 +32,16 @@ public class Portal : MonoBehaviour
         m_CreateRefraction = false;
     }
 
-    public void CreateRefraction()
+    /*public void CreateRefraction()
     {
         m_CreateRefraction = true;
         Vector3 l_EndRaycastPosition = Vector3.forward * m_MaxDistance;
-        float l_LaserDistance = m_MaxLaserDistance;
+
         RaycastHit l_RaycastHit;
         if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHit, m_MaxDistance, m_CollisionLayerMask.value))
         {
             l_EndRaycastPosition = Vector3.forward * l_RaycastHit.distance;
-            l_LaserDistance = Vector3.Distance(m_LineRenderer.transform.position, l_RaycastHit.point);
+
             if (l_RaycastHit.collider.tag == "Portal")
             {
                 //Reflect ray
@@ -53,8 +53,43 @@ public class Portal : MonoBehaviour
                 Debug.Log("You died");
             }
         }
-        m_LineRenderer.SetPosition(1, new Vector3(l_RaycastHit.transform.forward.x, l_RaycastHit.transform.forward.y, l_LaserDistance));
-        //m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
+
+        m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
+    }*/
+
+    public void CreateRefractionNew(RaycastHit _Point, Portal _Portal)
+    {
+        m_CreateRefraction = true;
+       
+        Vector3 l_LocalPosition = _Portal.m_OtherPortalTransform.InverseTransformPoint(_Point.point);
+        Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(_Point.transform.forward);
+
+        Vector3 l_EndRaycastPosition = l_LocalDirection * m_MaxDistance;
+
+        Vector3 l_LocalDirectionNormalized = l_LocalDirection.normalized;
+
+        m_LineRenderer.transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition);
+        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionNormalized);
+
+        RaycastHit l_RaycastHitNew;
+
+        if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
+        {
+            l_EndRaycastPosition = l_LocalDirectionNormalized * l_RaycastHitNew.distance;
+            Debug.Log("aha");
+            if (l_RaycastHitNew.collider.tag == "Portal")
+            {
+                //Reflect ray
+                l_RaycastHitNew.collider.GetComponent<Portal>().CreateRefractionNew(l_RaycastHitNew, _Portal);
+            }
+
+            if (l_RaycastHitNew.collider.tag == "Player")
+            {
+                Debug.Log("You died");
+            }
+            
+        }
+        m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
     }
 
     private void LateUpdate()

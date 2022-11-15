@@ -35,7 +35,8 @@ public class Turret : MonoBehaviour
 
                 if (l_RaycastHit.collider.tag == "Portal")
                 {
-                    l_RaycastHit.collider.GetComponent<Portal>().m_MirrorPortal.CreateRefraction();
+                    //l_RaycastHit.collider.GetComponent<Portal>().m_MirrorPortal.CreateRefraction();
+                    l_RaycastHit.collider.GetComponent<Portal>().m_MirrorPortal.CreateRefractionNew(l_RaycastHit, l_RaycastHit.collider.GetComponent<Portal>());
                     Physics.IgnoreCollision(m_Laser.GetComponent<Collider>(), l_RaycastHit.collider);
                 }
 
