@@ -65,9 +65,9 @@ public class ShootPortals : MonoBehaviour
         }
         else if (!m_AttachedObject)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonDown(0))
                 Shoot(m_BluePortal);
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonDown(1))
                 Shoot(m_OrangePortal);
             if(Input.mouseScrollDelta.y > 0)
             {
@@ -116,8 +116,8 @@ public class ShootPortals : MonoBehaviour
                 m_AttachedObject = true;
                 m_ObjectAttached = l_RaycastHit.collider.GetComponent<Rigidbody>();
                 m_ObjectAttached.gameObject.layer = LayerMask.NameToLayer("Weapon");
-                /*foreach(Transform child in m_ObjectAttached.transform)
-                    child.gameObject.layer = LayerMask.NameToLayer("Weapon");*/
+                foreach(Transform child in m_ObjectAttached.transform)
+                    child.gameObject.layer = LayerMask.NameToLayer("Weapon");
                 m_ObjectAttached.GetComponent<Companion>().SetAttached(true);
                 m_ObjectAttached.isKinematic = true;
                 m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
@@ -166,10 +166,11 @@ public class ShootPortals : MonoBehaviour
     {
         Vector3 l_Position;
         Vector3 l_Normal;
+        l_Portal.transform.localScale = new Vector3(m_Scale, m_Scale, 1.0f);
 
         if (l_Portal.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
         {
-            l_Portal.transform.localScale *= m_Scale;
+            
             l_Portal.gameObject.SetActive(true);
             //m_Scale = 1;
         }

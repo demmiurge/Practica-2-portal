@@ -15,7 +15,7 @@ public class Portal : MonoBehaviour
 
     public List<Transform> m_ValidPoints;
 
-    public float m_MinValidDistance = 0.4f;
+    public float m_MinValidDistance = 0.2f;
     public float m_MaxValidDistance = 1.5f;
     public float m_MinDotValidAngle = 0.995f;
 

@@ -20521,6 +20521,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 753421275}
     - target: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
+      propertyPath: m_MaxValidDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
+      propertyPath: m_MinValidDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_CollisionLayerMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
@@ -40731,6 +40739,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 753421275}
     - target: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
+      propertyPath: m_MaxValidDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
+      propertyPath: m_MinValidDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296383537964835740, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_CollisionLayerMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
@@ -42389,7 +42405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4290206605536438807
 Transform:
   m_ObjectHideFlags: 0
@@ -42566,7 +42582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &4533997349623550980
 MeshFilter:
   m_ObjectHideFlags: 10
