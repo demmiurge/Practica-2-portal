@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 5389635067016540021}
   - component: {fileID: 5389635067016540020}
   - component: {fileID: 5389635067016540023}
-  - component: {fileID: 5389635067016540022}
   - component: {fileID: 5389635067016540025}
   - component: {fileID: 5389635067016540016}
   - component: {fileID: 1313604652}
@@ -128,7 +127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e428f07018145a4199c913b06cc9598, type: 2}
+  - {fileID: 2100000, guid: 1fa54ba2c422cbc419bb8ec94a10ff89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,26 +179,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &5389635067016540022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5389635067016540024}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c7252322839b549b7373b70b20b39c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Yaw: 0
-  m_YawRotationalSpeed: 720
-  m_PitchRotationalSpeed: 720
-  m_MinPitch: -75
-  m_MaxPitch: 45
-  m_PitchController: {fileID: 5389635068233128001}
-  m_UseYawInverted: 0
-  m_UsePitchInverted: 1
 --- !u!114 &5389635067016540025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,14 +240,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BluePortal: {fileID: 0}
   m_OrangePortal: {fileID: 0}
-  m_Dummie: {fileID: 0}
+  m_Dummy: {fileID: 0}
   m_MaxShootDistance: 50
   m_ShootingLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_PitchController: {fileID: 5389635067068411517}
   m_AttachingPosition: {fileID: 448627731}
-  m_AttachingObjectSpeed: 20
+  m_AttachingObjectSpeed: 25
   m_MaxAttachDistance: 3
   m_AttachObjectLayermask:
     serializedVersion: 2
