@@ -7,15 +7,9 @@ public class SpawnerCompanionCubes : MonoBehaviour
     public GameObject m_CompanionCubes;
     public Transform m_SpawnPoint;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Spawner()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        m_CompanionCubes.transform.position = m_SpawnPoint.transform.position;
+        m_CompanionCubes.transform.rotation = m_SpawnPoint.transform.rotation;
     }
 }
