@@ -65,9 +65,9 @@ public class ShootPortals : MonoBehaviour
         }
         else if (!m_AttachedObject)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
                 Shoot(m_BluePortal);
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonUp(1))
                 Shoot(m_OrangePortal);
             if(Input.mouseScrollDelta.y > 0)
             {
