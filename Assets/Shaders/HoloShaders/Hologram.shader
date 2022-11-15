@@ -7,7 +7,7 @@ Shader "Unlit/Hologram"
 		_Color ("Base Color", Color) = (1,1,1,1)
 		_HoloColor("Holo Color", Color) = (1,1,1,1)
 		_HoloSpeed("Holo Speed Multiplier", Range(0,10)) = 1
-		_HoloValue ("Holo Value", Range(0, 10)) = 1
+		_HoloValue ("Holo Value", Range(0, 100)) = 1
 		_HoloDistance ("Holo Distance", Range(0,1)) = 0.5
 		_HoloDirection("Holo Direction", Vector) = (0,1,0,0)
 		[Space(10)]

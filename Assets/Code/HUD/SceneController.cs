@@ -15,10 +15,8 @@ public class SceneController : MonoBehaviour
     {
         Application.Quit();
 
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
-#endif
+        #endif
     }
-
-
 }
