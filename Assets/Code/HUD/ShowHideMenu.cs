@@ -6,6 +6,9 @@ public class ShowHideMenu : MonoBehaviour
 {
     public KeyCode m_PauseMenuKeyCode = KeyCode.P;
     public GameObject m_PauseMenuCanvas;
+    public ShowHideMouse m_ShowHideMouse;
+    public TimeGame m_TimeGame;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,34 +28,13 @@ public class ShowHideMenu : MonoBehaviour
         m_PauseMenuCanvas.SetActive(l_Status);
         if (l_Status)
         {
-            ShowMouse();
-            PauseGame();
+            m_ShowHideMouse.ShowMouse();
+            m_TimeGame.PauseGame();
         }
         else
         {
-            HideMouse();
-            ResumeGame();
+            m_ShowHideMouse.HideMouse();
+            m_TimeGame.ResumeGame();
         }
-    }
-
-    void ShowMouse()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-    }
-
-    void HideMouse()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
     }
 }
