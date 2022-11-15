@@ -68,14 +68,14 @@ public class Portal : MonoBehaviour
 
         Vector3 l_LocalDirectionNormalized = l_LocalDirection.normalized;
 
-        m_LineRenderer.transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition);
-        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionNormalized);
+        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
 
+        m_LineRenderer.transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition);
         RaycastHit l_RaycastHitNew;
 
-        if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
+        if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, _Portal.m_MirrorPortal.transform.forward), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
         {
-            l_EndRaycastPosition = l_LocalDirectionNormalized * l_RaycastHitNew.distance;
+            l_EndRaycastPosition = l_LocalDirection * l_RaycastHitNew.distance;
             Debug.Log("aha");
             if (l_RaycastHitNew.collider.tag == "Portal")
             {
