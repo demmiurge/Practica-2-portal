@@ -1382,6 +1382,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1313604661, guid: 289d6ce9fcaceab47a214856ac50822e, type: 3}
+      propertyPath: m_Dummy
+      value: 
+      objectReference: {fileID: 4290206605536438807}
+    - target: {fileID: 1313604661, guid: 289d6ce9fcaceab47a214856ac50822e, type: 3}
       propertyPath: m_BluePortal
       value: 
       objectReference: {fileID: 1552959685}
@@ -39914,6 +39918,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1018612618}
+    - target: {fileID: 8063347824746435231, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8296383537373145793, guid: 6edf177ddc1203548ba1b78ce0bc9e23, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -41414,7 +41422,7 @@ MonoBehaviour:
   m_Camera: {fileID: 0}
   m_OtherPortalTransform: {fileID: 0}
   m_MirrorPortal: {fileID: 0}
-  m_PlayerCamera: {fileID: 0}
+  m_PlayerCamera: {fileID: 753421275}
   m_OffsetNearPlane: 0.37
   m_ValidPoints:
   - {fileID: 4290206605041431864}
@@ -41464,6 +41472,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1281621492}
+    - target: {fileID: 8085622500658176071, guid: 7f2c80d39c0fae945abc8222e4096d30, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8133257847640716060, guid: 7f2c80d39c0fae945abc8222e4096d30, type: 3}
       propertyPath: m_RootOrder
       value: 18

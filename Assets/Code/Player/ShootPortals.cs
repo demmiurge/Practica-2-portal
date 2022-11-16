@@ -34,7 +34,7 @@ public class ShootPortals : MonoBehaviour
     {
         m_BluePortal.gameObject.SetActive(false);
         m_OrangePortal.gameObject.SetActive(false);
-        //m_Dummy.gameObject.SetActive(false);
+        m_Dummy.gameObject.SetActive(false);
         m_Scale = 1;
     }
 
@@ -71,9 +71,15 @@ public class ShootPortals : MonoBehaviour
                 ShowPreview(m_Dummy);
             }
             if (Input.GetMouseButtonUp(0))
+            {
+                m_Dummy.gameObject.SetActive(false);
                 Shoot(m_BluePortal);
+            }
             if (Input.GetMouseButtonUp(1))
+            {
+                m_Dummy.gameObject.SetActive(false);
                 Shoot(m_OrangePortal);
+            }
             if(Input.mouseScrollDelta.y > 0)
             {
                 if (m_Scale == 1)
