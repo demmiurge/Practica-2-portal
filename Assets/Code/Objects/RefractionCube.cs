@@ -44,6 +44,6 @@ public class RefractionCube : MonoBehaviour
                 Debug.Log("You died");
             }
         }
-        m_Laser.SetPosition(1, new Vector3(l_RaycastHit.transform.position.x, l_RaycastHit.transform.position.y, l_LaserDistance));
+        m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
     }
 }
