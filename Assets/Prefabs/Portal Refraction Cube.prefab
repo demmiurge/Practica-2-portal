@@ -508,6 +508,8 @@ GameObject:
   - component: {fileID: 1345481619951925419}
   - component: {fileID: 1345481619951925420}
   - component: {fileID: 429701711}
+  - component: {fileID: 994161781048038806}
+  - component: {fileID: 3428638786950766482}
   m_Layer: 7
   m_Name: Portal Refraction Cube
   m_TagString: RefractionCube
@@ -596,6 +598,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OffsetTeleportPortal: 1.5
+--- !u!114 &994161781048038806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345481619951894041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c47073a92a735140b17d34938c8d0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AvailableToSetAttributes: 0
+--- !u!114 &3428638786950766482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345481619951894041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de238985e8cb2c4194ffebc614820c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AvailableToSetAttributes: 0
 --- !u!1 &1345481619951894043
 GameObject:
   m_ObjectHideFlags: 0

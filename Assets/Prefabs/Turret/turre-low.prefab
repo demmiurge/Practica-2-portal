@@ -419,6 +419,8 @@ GameObject:
   - component: {fileID: 2142551126767766798}
   - component: {fileID: 2142551126767766796}
   - component: {fileID: 2142551126767766792}
+  - component: {fileID: 3690638406244584878}
+  - component: {fileID: 2267891940074188488}
   m_Layer: 7
   m_Name: turre-low
   m_TagString: Turret
@@ -473,8 +475,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7473311, y: 1.9865421, z: 1.254655}
-  m_Center: {x: -0.3712518, y: -0.0893057, z: -0.12732744}
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: -0.35, y: 0, z: 0.15}
 --- !u!114 &2142551126767766796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +508,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OffsetTeleportPortal: 1.5
+--- !u!114 &3690638406244584878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142551126767733723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de238985e8cb2c4194ffebc614820c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AvailableToSetAttributes: 0
+--- !u!114 &2267891940074188488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142551126767733723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8207f2b0da4dff4496cd587591c38cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AvailableToSetAttributes: 0
 --- !u!1 &2142551126767733727
 GameObject:
   m_ObjectHideFlags: 0

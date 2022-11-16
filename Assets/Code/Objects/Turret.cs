@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Turret : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Turret : MonoBehaviour
     public LayerMask m_LaserLayerMask;
     public float m_MaxLaserDistance = 250.0f;
     public float m_AngleDegrees = 45.0f;
+    public UnityEvent m_KillPlayerEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,7 @@ public class Turret : MonoBehaviour
 
                 if(l_RaycastHit.collider.tag == "Player")
                 {
-                    Debug.Log("You died");
+                    m_KillPlayerEvent.Invoke();
                 }
             }
 
