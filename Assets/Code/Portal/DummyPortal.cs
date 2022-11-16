@@ -24,7 +24,7 @@ public class DummyPortal : MonoBehaviour
 
         if (Physics.Raycast(l_Ray, out l_RaycastHit, MaxDistance, PortalLayerMask.value))
         {
-            if (l_RaycastHit.collider.tag == "DrawableWall")
+            if (l_RaycastHit.collider.tag == "DrawableWall" && l_RaycastHit.collider.tag != "Portal")
             {
                 l_Valid = true;
                 Position = l_RaycastHit.point;
@@ -39,7 +39,7 @@ public class DummyPortal : MonoBehaviour
                     l_Ray = new Ray(StartPosition, l_Direction);
                     if (Physics.Raycast(l_Ray, out l_RaycastHit, MaxDistance, PortalLayerMask.value))
                     {
-                        if (l_RaycastHit.collider.tag == "DrawableWall")
+                        if (l_RaycastHit.collider.tag == "DrawableWall" && l_RaycastHit.collider.tag != "Portal")
                         {
                             float l_Distance = Vector3.Distance(Position, l_RaycastHit.point);
 

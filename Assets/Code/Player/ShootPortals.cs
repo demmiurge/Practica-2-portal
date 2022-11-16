@@ -11,6 +11,7 @@ public class ShootPortals : MonoBehaviour
 
     public float m_MaxShootDistance = 50.0f;
     public LayerMask m_ShootingLayerMask;
+    public LayerMask m_DummyShootingLayerMask;
     public Transform m_PitchController;
 
     [Header("Objects")]
@@ -39,6 +40,18 @@ public class ShootPortals : MonoBehaviour
         m_OrangePortal.gameObject.SetActive(false);
         m_Dummy.gameObject.SetActive(false);
         m_Scale = 1;
+    }
+
+    void LateUpdate()
+    {
+        if (m_ObjectAttached && !m_AttachedObject)
+        {
+
+        }
+        else if (!m_AttachedObject)
+        {
+
+        }
     }
 
     // Update is called once per frame
@@ -199,18 +212,14 @@ public class ShootPortals : MonoBehaviour
         Vector3 l_Normal;
         l_Dummy.transform.localScale = new Vector3(m_Scale, m_Scale, 1.0f);
 
-        if (l_Dummy.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
+        if (l_Dummy.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_DummyShootingLayerMask, out l_Position, out l_Normal))
         {
             l_Dummy.gameObject.SetActive(true);
             l_Dummy.GetComponentInChildren<MeshRenderer>().material = _Material;
-            l_Dummy.transform.Translate(l_Position * Time.deltaTime);
-            l_Dummy.transform.rotation = Quaternion.LookRotation(l_Normal);
         }
         else
         {
-            Debug.Log("false");
             l_Dummy.gameObject.SetActive(false);
         }
     }
-
 }
