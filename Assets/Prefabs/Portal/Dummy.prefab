@@ -15577,6 +15577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8133257847640716060}
   - component: {fileID: 8085622500658176071}
+  - component: {fileID: 4290206605536438807}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Portal
@@ -15609,10 +15610,34 @@ BoxCollider:
   m_GameObject: {fileID: 8133257847640716061}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.475712, z: 0.33728647}
   m_Center: {x: -1.04568547e-16, y: 0.024817288, z: 0.13235833}
+--- !u!114 &4290206605536438807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133257847640716061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778646d175d3b8d48a4802350a5e8231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerCamera: {fileID: 0}
+  m_OffsetNearPlane: 0.37
+  m_ValidPoints:
+  - {fileID: 8133257847078628403}
+  - {fileID: 8133257847339066736}
+  - {fileID: 8133257847780909839}
+  - {fileID: 8133257848005301592}
+  - {fileID: 8133257847824316196}
+  - {fileID: 8133257849050477955}
+  m_MinValidDistance: 0.2
+  m_MaxValidDistance: 2
+  m_MinDotValidAngle: 0.995
 --- !u!1 &8133257847780909824
 GameObject:
   m_ObjectHideFlags: 0
