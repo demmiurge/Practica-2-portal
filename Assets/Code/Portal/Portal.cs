@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.Events;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -23,6 +24,8 @@ public class Portal : MonoBehaviour
     public float m_MaxDistance = 250.0f;
     public LayerMask m_CollisionLayerMask;
     bool m_CreateRefraction;
+
+    public UnityEvent m_KillPlayerEvent;
 
     float m_MaxLaserDistance = 250.0f;
 
@@ -68,24 +71,25 @@ public class Portal : MonoBehaviour
 
         Vector3 l_LocalDirectionNormalized = l_LocalDirection.normalized;
 
-        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
+        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionNormalized);
 
-        m_LineRenderer.transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition);
+        m_LineRenderer.transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(new Vector3(l_LocalPosition.x, l_LocalPosition.y, l_LocalPosition.z + 0.5f));
         RaycastHit l_RaycastHitNew;
 
-        if (Physics.Raycast(new Ray(l_LocalPosition, l_LocalDirection), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
+        if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
         {
-            l_EndRaycastPosition = l_LocalDirection * l_RaycastHitNew.distance;
-            Debug.Log("aha");
+            l_EndRaycastPosition = m_LineRenderer.transform.forward * l_RaycastHitNew.distance;
+
             if (l_RaycastHitNew.collider.tag == "Portal")
             {
                 //Reflect ray
-                l_RaycastHitNew.collider.GetComponent<Portal>().CreateRefractionNew(l_RaycastHitNew, _Ray, _Portal);
+                //l_RaycastHitNew.collider.GetComponent<Portal>().CreateRefractionNew(l_RaycastHitNew, _Ray, _Portal);
             }
 
             if (l_RaycastHitNew.collider.tag == "Player")
             {
-                Debug.Log("You died");
+                m_KillPlayerEvent.Invoke();
+                Debug.Log("dead");
             }
             
         }

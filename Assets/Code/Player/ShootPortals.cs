@@ -7,7 +7,7 @@ public class ShootPortals : MonoBehaviour
     [Header("Portals")]
     public Portal m_BluePortal;
     public Portal m_OrangePortal;
-    public Portal m_Dummy;
+    public DummyPortal m_Dummy;
 
     public float m_MaxShootDistance = 50.0f;
     public LayerMask m_ShootingLayerMask;
@@ -65,21 +65,13 @@ public class ShootPortals : MonoBehaviour
         }
         else if (!m_AttachedObject)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 ShowPreview(m_Dummy, m_BlueMaterial);
             }
-            if (Input.GetMouseButtonDown(1))
-            {
-                ShowPreview(m_Dummy, m_OrangeMaterial);
-            }
-            if(Input.GetMouseButton(0))
-            {
-                UpdateDummyPosition(m_Dummy, m_BlueMaterial);
-            }
             if (Input.GetMouseButton(1))
             {
-                UpdateDummyPosition(m_Dummy, m_OrangeMaterial);
+                ShowPreview(m_Dummy, m_OrangeMaterial);
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -191,15 +183,17 @@ public class ShootPortals : MonoBehaviour
         l_Portal.transform.localScale = new Vector3(m_Scale, m_Scale, 1.0f);
 
         if (l_Portal.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
-        {   
+        {
             l_Portal.gameObject.SetActive(true);
         }
         else
+        {
             l_Portal.gameObject.SetActive(false);
+        }
 
     }
 
-    void ShowPreview(Portal l_Dummy, Material _Material)
+    void ShowPreview(DummyPortal l_Dummy, Material _Material)
     {
         Vector3 l_Position;
         Vector3 l_Normal;
@@ -209,29 +203,14 @@ public class ShootPortals : MonoBehaviour
         {
             l_Dummy.gameObject.SetActive(true);
             l_Dummy.GetComponentInChildren<MeshRenderer>().material = _Material;
+            l_Dummy.transform.Translate(l_Position * Time.deltaTime);
+            l_Dummy.transform.rotation = Quaternion.LookRotation(l_Normal);
         }
         else
+        {
+            Debug.Log("false");
             l_Dummy.gameObject.SetActive(false);
+        }
     }
 
-    void UpdateDummyPosition(Portal _Dummy, Material _Material)
-    {
-        Vector3 l_Position;
-        Vector3 l_Normal;
-        _Dummy.transform.localScale = new Vector3(m_Scale, m_Scale, 1.0f);
-
-        if (_Dummy.IsValidPosition(m_PlayerCamera.transform.position, m_PlayerCamera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
-        {
-            //_Dummy.transform.position = l_Position;
-            _Dummy.GetComponentInChildren<MeshRenderer>().material = _Material;
-            _Dummy.transform.Translate(l_Position * Time.deltaTime);
-            _Dummy.transform.rotation = Quaternion.LookRotation(l_Normal);
-            Debug.Log(m_PlayerCamera.transform.position);
-        }
-        else
-        {
-            //_Dummy.gameObject.SetActive(false);
-        }
-
-    }
 }

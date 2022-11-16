@@ -1044,7 +1044,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1934
+  m_Name: pb_Mesh-2066
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1445,7 +1445,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1800
+  m_Name: pb_Mesh-1932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2226,7 +2226,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1924
+  m_Name: pb_Mesh-2056
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20526,7 +20526,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2136
+  m_Name: pb_Mesh-2260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40022,7 +40022,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1790
+  m_Name: pb_Mesh-1922
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41308,14 +41308,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4290206605536438806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3b1e3ebeb0124449e9574ea3770968, type: 3}
+  m_Script: {fileID: 11500000, guid: 778646d175d3b8d48a4802350a5e8231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
-  m_OtherPortalTransform: {fileID: 0}
-  m_MirrorPortal: {fileID: 0}
   m_PlayerCamera: {fileID: 753421275}
-  m_OffsetNearPlane: 0.37
+  m_OffsetNearPlane: 0
   m_ValidPoints:
   - {fileID: 4290206605041431864}
   - {fileID: 4290206605301873787}
@@ -41326,11 +41323,6 @@ MonoBehaviour:
   m_MinValidDistance: 0.2
   m_MaxValidDistance: 2
   m_MinDotValidAngle: 0.995
-  m_LineRenderer: {fileID: 0}
-  m_MaxDistance: 250
-  m_CollisionLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &4290206605953432068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8133257847780909839, guid: 7f2c80d39c0fae945abc8222e4096d30, type: 3}

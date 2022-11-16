@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RefractionCube : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RefractionCube : MonoBehaviour
     public LayerMask m_LaserLayerMask;
     public float m_MaxLaserDistance = 250.0f;
     bool m_RefractionEnabled = false;
+    public UnityEvent m_KillPlayerEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,7 @@ public class RefractionCube : MonoBehaviour
 
             if (l_RaycastHit.collider.tag == "Player")
             {
-                Debug.Log("You died");
+                m_KillPlayerEvent.Invoke();
             }
         }
         m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
