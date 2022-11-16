@@ -57,30 +57,30 @@ public class Portal : MonoBehaviour
         m_LineRenderer.SetPosition(1, l_EndRaycastPosition);
     }*/
 
-    public void CreateRefractionNew(RaycastHit _Point, Portal _Portal)
+    public void CreateRefractionNew(RaycastHit _Point, Ray _Ray, Portal _Portal)
     {
         m_CreateRefraction = true;
        
         Vector3 l_LocalPosition = _Portal.m_OtherPortalTransform.InverseTransformPoint(_Point.point);
-        Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(_Portal.transform.forward);
+        Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(_Ray.direction);
 
         Vector3 l_EndRaycastPosition = l_LocalDirection * m_MaxDistance;
 
         Vector3 l_LocalDirectionNormalized = l_LocalDirection.normalized;
 
-        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionNormalized);
+        m_LineRenderer.transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
 
         m_LineRenderer.transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosition);
         RaycastHit l_RaycastHitNew;
 
-        if (Physics.Raycast(new Ray(m_LineRenderer.transform.position, m_LineRenderer.transform.forward), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
+        if (Physics.Raycast(new Ray(l_LocalPosition, l_LocalDirection), out l_RaycastHitNew, m_MaxDistance, m_CollisionLayerMask.value))
         {
-            l_EndRaycastPosition = l_RaycastHitNew.transform.forward * l_RaycastHitNew.distance;
+            l_EndRaycastPosition = l_LocalDirection * l_RaycastHitNew.distance;
             Debug.Log("aha");
             if (l_RaycastHitNew.collider.tag == "Portal")
             {
                 //Reflect ray
-                l_RaycastHitNew.collider.GetComponent<Portal>().CreateRefractionNew(l_RaycastHitNew, _Portal);
+                l_RaycastHitNew.collider.GetComponent<Portal>().CreateRefractionNew(l_RaycastHitNew, _Ray, _Portal);
             }
 
             if (l_RaycastHitNew.collider.tag == "Player")
